@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+
+    <title>Todo</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            height: 73px;
+        }
+        .logo{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <img src="https://1.bp.blogspot.com/-kYQ1lq2Lfbc/X9Sa1RCdIPI/AAAAAAAAAIQ/yDpw_BigQ6gkPEhyv8qPimDFwyyPDeluwCK4BGAYYCw/s1600/circle-cropped.png" alt="www.codingshala.in logo" class="logo" onclick="window.location='https://www.codingshala.in/'">
+            <a href="#" class="brand-logo center logo">To-do task</a>
+            <ul id="nav-mobile"  class="right hide-on-med-and-down">
+                <li class="logged-in">
+                    <a href="#" id="logout">logout</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" data-target="modal-login" class="modal-trigger">login</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" data-target="modal-signup" class="modal-trigger">Sign Up</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container">
+        <form id="add-todo-form" autocomplete="off">
+            <input type="text" name="title" placeholder="Type Your Task here....">
+            <button class="waves-effect waves-light btn">Add Task</button>
+        </form>
+
+        <ul class="collection" id="todo-list">
+
+            <!-- <li class="collection-item">
+                <div><span>Buying food</span>
+                    <i class="material-icons secondary-content">delete</i>
+                    <a href="#modal1" class="modal-trigger secondary-content"> <i class="material-icons ">edit</i></a>
+                </div>
+            </li> -->
+
+        </ul>
+
+
+        <!-- Edit Modal Structure -->
+        <div id="modal-edit" class="modal">
+            <div class="modal-content">
+                <input type="text" name="newTitle" id="updateValue" placeholder="Update Task" autocomplete="off">
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn modal-close waves-effect waves-green btn-flat" id="updateBtn">Update</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+            
+        var firebaseConfig = {
+            apiKey: "AIzaSyBePhhtIf7NHeuAWh5lh3UMj81GcQmHZpc",
+            authDomain: "todolist-a395d.firebaseapp.com",
+            projectId: "todolist-a395d",
+            storageBucket: "todolist-a395d.appspot.com",
+            messagingSenderId: "965349812848",
+            appId: "1:965349812848:web:1554705a1ecd5caf8de2b5"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+</script>
+    <script src="app.js"></script>
+</body>
+
+</html>
