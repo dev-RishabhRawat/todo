@@ -84,7 +84,7 @@ db.collection('todos').orderBy('title').onSnapshot(
                 // console.log('removed');
             }
             else if(change.type === 'modified'){
-                let li = todoList.querySelector(`[data-id=${change.doc.id}]`);
+                let li = todoList.querySelector(`[data-id="${change.doc.id}"]`);
                 li.getElementsByTagName('span')[0].textContent = newTitle;
                 // console.log(newTitle);
                 newTitle = '';
